@@ -1,0 +1,33 @@
+@media screen and (min-width:769px) {
+    form{
+        min-width: 36vw;
+    }
+
+    .double-column-wrapper,
+    #query-type{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    #user-message{
+        height: 12vw;
+    }
+
+
+
+}
+@media screen and (min-width: 426px) and (max-width: 768px){
+    .double-column-wrapper,
+    #query-type {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    #user-message{
+        height: 184px;
+    }
+    form{
+        min-width: 48vw;
+    }
+}
