@@ -5,11 +5,11 @@ const emailAddress = document.querySelector("#email");
 const queries = document.querySelectorAll(".query");
 const msgBox = document.querySelector("#user-message");
 const consentBox = document.querySelector("#consent-checkbox");
-const successMsgCard = document.querySelector(".sent-msg-card");
 
+
+const body = document.querySelector("body");
 const firstNameArea = document.querySelector(".first-name-area");
 const lastNameArea = document.querySelector(".last-name-area");
-
 const emailArea = document.querySelector(".email-area");
 const queryArea = document.querySelector(".query-area");
 const msgArea = document.querySelector(".msg-area");
@@ -122,6 +122,13 @@ function consentValidation() {
 
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
+    const successMsgCard = document.querySelector(".sent-msg-card");
+    if(successMsgCard){
+        successMsgCard.remove();
+    }
+
+
+    
 
     const firstNameOk = firstNameValidation();
     const lastNameOk = lastNameValidation();
@@ -135,7 +142,13 @@ submitBtn.addEventListener("click", (event) => {
     console.log("Form valid?", isValid);
 
     if (isValid) {
-        successMsgCard.style.visibility = "visible";
-        successMsgCard.style.opacity = "1";
+        const successMsgCardElement = document.createElement('div');
+        successMsgCardElement.classList.add('sent-msg-card');
+        successMsgCardElement.innerHTML = `<div class="msg-sent-wrapper">
+      <img src="./assets/images/icon-success-check.svg" alt="message sent success tick mark icon">
+      <p>Message Sent!</p>
+    </div>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>`;
+        body.appendChild(successMsgCardElement);
     }
 });
